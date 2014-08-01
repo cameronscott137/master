@@ -82,59 +82,6 @@
 
 		add_action( 'widgets_init', 'atm_widgets_init' );
 
-	/* Blog Post Excerpts */
-		function atm_new_excerpt_more($more) {
-		       global $post;
-					return '... <a class="read-more" href="'. get_permalink($post->ID) . '">Read More »</a>';
-		}
-		add_filter('excerpt_more', 'atm_new_excerpt_more');
-
-		function atm_custom_excerpt_length( $length ) {
-			if ( is_page_template('template-home.php') )
-				return 20;
-			else
-				return 40;
-		}
-		add_filter( 'excerpt_length', 'atm_custom_excerpt_length', 999 );
-
-
-	/* Enable page excerpts */
-		add_action('init', 'atm_page_excerpt');
-		function atm_page_excerpt() {
-			add_post_type_support( 'page', 'excerpt' );
-		}
-
-
-	/* Metaboxes */
-		include_once 'metaboxes/setup.php';
-		include_once 'metaboxes/simple-spec.php';
-		//include_once 'metaboxes/full-spec.php';
-		//include_once 'metaboxes/checkbox-spec.php';
-		//include_once 'metaboxes/radio-spec.php';
-		//include_once 'metaboxes/select-spec.php';
-
-	/*
-	Custom Login and Admin
-	======================================================================================================================== */
-	
-	/* Hide Content Editor for pages with certain templates. */
-	function ttv_hide_editor() {
-		// Get the Post ID.
-		$post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
-		if( !isset( $post_id ) ) return;
-
-		// Hide the editor on a page with a specific page template
-		// Get the name of the Page Template file.
-		$template_file = get_post_meta($post_id, '_wp_page_template', true);
-
-		/* Add the names of the template files here */
-		if($template_file == 'template-home.php' || $template_file == 'template-archetype.php' || $template_file == 'template-feature.php' || $template_file == 'template-landing.php' || $template_file == 'template-pricing.php') { // the filename of the page template
-		remove_post_type_support('page', 'editor');
-		}
-	}
-	add_action( 'admin_init', 'ttv_hide_editor' );
-
-
 	/* Load Bootstrap into Admin */
 	function ttv_load_custom_admin() {
 	        wp_register_style( 'custom_wp_admin_css', get_template_directory_uri() . '/admin/admin.min.css', false, '1.0.0' );
@@ -178,7 +125,6 @@
 
 
 	add_action( 'wp_enqueue_scripts', 'starkers_script_enqueuer' );
-
 	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
 
 
@@ -188,30 +134,13 @@
 	======================================================================================================================== */
 
 	function starkers_script_enqueuer() {
-		wp_register_script( 'site', get_template_directory_uri().'/site.min.js', array( 'jquery' ),'',true );
+		wp_register_script( 'site', get_template_directory_uri().'/site.min.js', array( 'jquery' ), false, true );
 		wp_enqueue_script( 'site' );
 
-		wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.min.css', '', '', 'screen' );
+        wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.min.css', '', '', 'screen' );
         wp_enqueue_style( 'screen' );
-
-		/*wp_register_script( 'bootstrap-js', get_template_directory_uri().'/js/bootstrap.min.js', array( 'jquery' ) );
-		wp_enqueue_script( 'bootstrap-js' );
-
-		wp_register_script( 'scroll-to', get_template_directory_uri().'/js/jquery.scrollTo-1.4.3.1-min.js', array( 'jquery' ) );
-		wp_enqueue_script( 'scroll-to' );
-
-		wp_register_script( 'local-scroll', get_template_directory_uri().'/js/jquery.localscroll-1.2.7-min.js', array( 'jquery' ) );
-		wp_enqueue_script( 'local-scroll' );
-
-		wp_register_script( 'respond', get_template_directory_uri().'/js/respond.min.js', array( 'jquery' ) );
-		wp_enqueue_script( 'respond' );
-
-		/*wp_register_style( 'boostrap-3', get_stylesheet_directory_uri().'/css/bootstrap.css', '', '', 'screen' );
-        wp_enqueue_style( 'boostrap-3' );*/
-
-       /* wp_register_style( 'bootstrap-responsive', get_stylesheet_directory_uri().'/css/bootstrap-responsive.css', '', '', 'screen' );
-        wp_enqueue_style( 'bootstrap-responsive' ); */
 	}
+
 
 	/* Google Fonts */
 	function google_fonts() {

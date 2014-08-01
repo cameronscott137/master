@@ -2,10 +2,7 @@
 /*
 Template Name: Home
 */
-global $home;
-$home = get_post_meta(get_the_ID(), $home->get_the_id(), TRUE);
-get_header();
-require_once( 'header-nav.php' );?>
+get_header();?>
 
       <div class="hero js">
           <div class="container">
@@ -14,7 +11,6 @@ require_once( 'header-nav.php' );?>
                         <h1 itemprop="headline"><?php echo $home['heading-title'];?></h1>
                         <h2 itemprop="description"><?php echo $home['heading-description'];?></h2>
                         <a class="btn btn-primary btn-lg" href="<?php echo $home['btn-link'];?>" target="_blank"><?php echo $home['btn-text'];?></a>
-                        <img class="home-header img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/images/home_header.png" alt="Header iPad">
                     </div> <!-- /col md 12 -->
                   </div><!-- /row --> 
         </div><!-- /container -->
@@ -120,64 +116,6 @@ require_once( 'header-nav.php' );?>
             </div><!-- /col-md-12 -->
       </div><!-- /row -->
     </div><!-- /container -->
-
-  <div class="social">
-    <div class="container container-home">
-      <div class="row">
-        <h1 class="section-title">Follow Us and Stay On Top of the Whether</h1>
-        <div class="col-sm-3">
-        	<a href="https://www.facebook.com/Atmosferiq" target="_blank">
-        		<button class="facebook">
-        			<div class="left">
-        				<i class="fa fa-facebook fa-lg"></i>
-        			</div>
-        			<div class="right">
-        				Facebook
-        			</div>
-        		</button>
-        	</a>
-        </div>
-        <div class="col-sm-3">
-        	<a href="http://www.twitter.com/atmosferiq" target="_blank">
-        		<button class="twitter">
-        			<div class="left">
-        				<i class="fa fa-twitter fa-lg"></i>
-        			</div>
-        			<div class="right">
-        				Twitter
-					</div>
-        		</button>
-        	</a>
-        </div>
-        <div class="col-sm-3">
-        	<a href="http://www.linkedin.com/company/atmosferiq" target="_blank">
-        		<button class="linkedin">
-            			<div class="left">
-            				<i class="fa fa-linkedin fa-lg"></i>
-            			</div>
-            			<div class="right">
-            				LinkedIn
-      					   </div><!-- /right -->
-        		</button>
-        	</a>
-        </div><!-- /col-sm-3 -->
-        <div class="col-sm-3">
-          <a href="https://plus.google.com/+Atmosferiq/posts" target="_blank">
-            <button class="google">
-                  <div class="left">
-                    <i class="fa fa-google-plus fa-lg"></i>
-                  </div>
-                  <div class="right">
-                    Google+
-                   </div><!-- /right -->
-            </button>
-          </a>
-        </div><!-- /col-sm-3 -->
-
-
-      </div><!-- /row -->
-    </div><!-- /container -->
-  </div><!-- /social -->
 
   <div class="violator">
         <div class="container">

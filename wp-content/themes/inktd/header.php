@@ -40,32 +40,30 @@
     <script src="http://atmosferiq.com/wp-content/themes/starter-theme/bootstrap/js/respond.min.js" type="text/javascript"></script>
 <![endif]-->
 <!-- Analytics -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-42099303-1', 'atmosferiq.com');
-  ga('send', 'pageview');
-
-</script>
-<?php if (is_page('contact') ){ ?>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABCwJzMiFzDbmhvNS-VDW94Ve1woyKUTs&sensor=true"></script>
-  <?php } ?>
-<?php wp_head(); ?>
-<script type="text/javascript">
-var _ss = _ss || [];
-_ss.push(['_setDomain', 'https://koi-NST254.sharpspring.com/net']);
-_ss.push(['_setAccount', 'KOI-PEQ7DQ']);
-_ss.push(['_trackPageView']);
-(function() {
-    var ss = document.createElement('script');
-    ss.type = 'text/javascript'; ss.async = true;
-    ss.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'koi-NST254.sharpspring.com/client/ss.js?ver=1.1.1';
-    var scr = document.getElementsByTagName('script')[0];
-    scr.parentNode.insertBefore(ss, scr);
-})();
-</script>
 </head>
-
+<?php wp_head();?>
+<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
+    <div class="navbar-wrapper fixed">
+       <header role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+              <nav class="navbar navbar-default" role="navigation">
+                  <div class="container">
+                      <div class="row">
+                          <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+                                  <span class="sr-only">Toggle navigation</span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="<?php bloginfo('url'); ?>"><img class="img-responsive" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.svg" alt="Inktd Logo"></a>
+                          </div><!-- navbar-header -->
+                          <div class="navbar-collapse collapse" id="nav">
+                                  <nav class="primary" itemscope itemtype="http://schema.org/SiteNavigationElement">
+                                      <?php wp_nav_menu( array( 'theme_location' => 'primary', 'items_wrap' => '<ul class="nav navbar-nav navbar-right">%3$s</ul>') ); ?>
+                                  </nav>
+                          </div> <!-- /navbar-collapse -->
+                      </div><!-- /row -->
+                  </div><!-- /container -->
+            </nav><!-- /navbar -->
+      </header>
+  </div> <!-- /navbar-wrapper -->
