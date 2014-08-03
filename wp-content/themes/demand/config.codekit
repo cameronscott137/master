@@ -1506,6 +1506,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 1
 		},
+	"\/images\/client_logo.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1915,
+		"inputAbbreviatedPath": "\/images\/client_logo.png",
+		"outputAbbreviatedPath": "\/images\/client_logo.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 1
+		},
 	"\/images\/favicon.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -1524,6 +1535,28 @@
 		"initialSize": 153370,
 		"inputAbbreviatedPath": "\/images\/filler.jpg",
 		"outputAbbreviatedPath": "\/images\/filler.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 1
+		},
+	"\/images\/filler2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 762578,
+		"inputAbbreviatedPath": "\/images\/filler2.jpg",
+		"outputAbbreviatedPath": "\/images\/filler2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 1
+		},
+	"\/images\/filler3.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 313966,
+		"inputAbbreviatedPath": "\/images\/filler3.jpg",
+		"outputAbbreviatedPath": "\/images\/filler3.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 1

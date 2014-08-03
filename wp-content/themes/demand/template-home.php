@@ -11,8 +11,7 @@ get_header();?>
       <h2 itemprop="description">Demand is a <a href="#">customer experience design</a> firm that strives to  plan, produce and measure demand-driven sales, marketing and product strategies.</h2>
 </header>
 
-<section class="clients container">
-  <article class="client row">
+
     <?php
  
 // check if the repeater field has rows of data
@@ -22,6 +21,8 @@ if( have_rows('clients') ):
     while ( have_rows('clients') ) : the_row();
           $main = get_sub_field('main_image');
           $footer_logo = get_sub_field('client_logo_footer');?>
+<section class="clients container">
+  <article class="client row">
           <header class="client-header">
             <div class="client-brand">
                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -49,32 +50,32 @@ if( have_rows('clients') ):
         </header>
 
 
-    <div class="quote">
-      <div class="row">
-        <div class="col-md-12">
-            <span class="caret"></span>
-            <h2 itemprop="headline" class="primary"><?php the_sub_field('main-quote');?></h2>
-            <p itemprop="description"><?php the_sub_field('supp_quote');?></p>
-            <cite title="Source Title">Source Title</cite>
-            <footer class="links">
-              <div class="col-md-4 text-left">
-                 <?php echo "<img class='img-responsive' src='".$footer_logo['url']."' alt=".$footer_logo['alt']." />";?>
-              </div><!-- /col-md-4 -->
-              <div class="col-md-4 text-center">
-                <?php
-                    if( have_rows('client_palette') ):
-                        while ( have_rows('client_palette') ) : the_row();
-                            $hex = get_sub_field('hex_code');
-                            echo "<span class='palette' style='background:".$hex."'></span>";
-                        endwhile;
-                    endif;?>
-              </div><!-- /col-md-4 -->
-              <div class="col-md-4 text-right">
-                web | behance &rarr;
-              </div><!-- /col-md-4 -->
-        </div>
-      </div><!-- col-md-12-->
-    </div><!-- quote -->
+          <div class="quote">
+            <div class="row">
+              <div class="col-md-12">
+                  <span class="caret"></span>
+                  <h2 itemprop="headline" class="primary"><?php the_sub_field('main-quote');?></h2>
+                  <p itemprop="description"><?php the_sub_field('supp_quote');?></p>
+                  <cite title="Source Title">Source Title</cite>
+                  <footer class="links">
+                    <div class="col-md-4 text-left">
+                       <?php echo "<img class='img-responsive' src='".$footer_logo['url']."' alt=".$footer_logo['alt']." />";?>
+                    </div><!-- /col-md-4 -->
+                    <div class="col-md-4 text-center">
+                      <?php
+                          if( have_rows('client_palette') ):
+                              while ( have_rows('client_palette') ) : the_row();
+                                  $hex = get_sub_field('hex_code');
+                                  echo "<span class='palette' style='background:".$hex."'></span>";
+                              endwhile;
+                          endif;?>
+                    </div><!-- /col-md-4 -->
+                    <div class="col-md-4 text-right">
+                      web | behance &rarr;
+                    </div><!-- /col-md-4 -->
+              </div>
+            </div><!-- col-md-12-->
+          </div><!-- quote -->
   </article><!-- client-->
 </section><!-- clients -->
 

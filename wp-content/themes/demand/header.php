@@ -44,7 +44,7 @@
 <?php wp_head();?>
 <body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
     <div class="navbar-wrapper fixed">
-       <header class="brand" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+       <header class="brand center-block" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                viewBox="0 0 102.5 133" enable-background="new 0 0 102.5 133" xml:space="preserve">
             <g id="ART">
