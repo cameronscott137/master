@@ -2,133 +2,124 @@
 /*
 Template Name: Home
 */
-get_header();?>
+?>
 
-      <div class="hero js">
-          <div class="container">
-                  <div class="row">
-                    <div class="col-md-12 page-header">
-                        <h1 itemprop="headline"><?php echo $home['heading-title'];?></h1>
-                        <h2 itemprop="description"><?php echo $home['heading-description'];?></h2>
-                        <a class="btn btn-primary btn-lg" href="<?php echo $home['btn-link'];?>" target="_blank"><?php echo $home['btn-text'];?></a>
-                    </div> <!-- /col md 12 -->
-                  </div><!-- /row --> 
-        </div><!-- /container -->
-        <?php if (has_post_thumbnail( $post->ID ) ): ?>
-                <?php $image_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'med-custom');
-             echo "<?php echo $image_url; ?>";
-             echo "<div class='featured-image' style='background-image: url($image_url[0])' itemprop='image' alt='marketing mix management'></div>";
-           ?>
-          <?php endif; ?>
+<!-- Call global metaboxes -->
+<?php get_header();?>
+<main class="main" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+      <!-- Hero -->
+      <div class="hero">
+               <div class="container">
+                     <div class="row">
+                         <div class="col-md-12">
+                            <h1 itemprop="headline"><?php the_field('hero_headline'); ?></h1>
+                            <h2 itemprop="description"><?php the_field('hero_sub'); ?></h2>
+                            <a class="btn btn-primary" href="https://inktd.herokuapp.com/sign_up" target="_blank"><?php the_field('hero_btn'); ?></a>
+                    		    <p>No credit card required</p>
+                         </div>
+                     </div>
+               </div>
+               <?php if (has_post_thumbnail( $post->ID ) ): ?>
+               <?php $image_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'med-custom');
+               echo "<?php echo $image_url; ?>";
+               echo "<div class='featured-image' style='background-image: url($image_url[0])' itemprop='image'></div>";
+             ?>
+            <?php endif; ?>
       </div><!-- /hero -->
 
-<main class="main" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/WebPage">
-      <div class="violator whitepaper">
-            <div class="container">
-                  <div class="col-md-8">
-                        <h4><?php echo $home['violator-sub'];?></h4>
-                        <h2 itemprop="headline"><?php echo $home['violator-title'];?></h2>
-                        <p itemprop="description"><?php echo $home['violator-description'];?></p>
-                        <a class="btn btn-primary btn-lg" href="<?php echo $home['violator-btn-link'];?>" target="_blank"><?php echo $home['violator-btn'];?></a>
-                  </div><!-- /col-md-8 -->
-                  <div class="col-md-4 button">
-                    <img class="img-responsive center-block" src="<?php echo $home['violator-img'];?>"/>
-                  </div><!-- /col-md-6 -->
-            </div><!-- /container -->
-      </div><!-- /violator -->
-    <div class="container container-home">    
-        <div class="row tradigital">
-        	<h1 class="section-title" itemprop="headline"><?php echo $home['tradigital-title'];?></h1>
-        	<div class="lede">
-            <p itemprop="description"><?php echo $home['tradigital-description'];?></p>
-          </div>
-      		<div class="col-md-4">
-              <h2 class="percent"><a href="http://atmosferiq.com/the-market/tradigital" target="_blank" onClick="_gaq.push(['_trackEvent', 'Home', 'home-click', 'Home Page Tradigital Link']);"><?php echo $home['tradigital-col1-stat'];?></a></h2>
-              <p><?php echo $home['tradigital-col1-desc'];?></p>
-		          <p><a class="pull-right" href="<?php echo $home['tradigital-col1-link'];?>">Read more &raquo;</a></p>
-		    </div> <!-- /col-md-4 -->
-      		<div class="col-md-4">
-              <h2 class="percent"><a href="http://atmosferiq.com/the-market/money-going-sticking-traditional-media/" target="_blank" onClick="_gaq.push(['_trackEvent', 'Home', 'home-click', 'Home Page Traditional Media Link']);"><?php echo $home['tradigital-col2-stat'];?></a></h2>
-              <p><?php echo $home['tradigital-col2-desc'];?></p>
-              <p><a class="pull-right" href="<?php echo $home['tradigital-col2-link'];?>">Read more &raquo;</a></p>
-		    </div> <!-- /col-md-4 -->
-      		<div class="col-md-4">	
-              <h2 class="percent"><a href="http://atmosferiq.com/the-market/famous-quote-history-advertising/" target="_blank" onClick="_gaq.push(['_trackEvent', 'Home', 'home-click', 'Home Page Wasted Budget Link']);"><?php echo $home['tradigital-col3-stat'];?></a></h2>
-              <p><?php echo $home['tradigital-col3-desc'];?></p>
-              <p><a class="pull-right" href="<?php echo $home['tradigital-col3-link'];?>">Read more &raquo;</a></p>
-		    </div> <!-- /col-md-4 -->
-		</div>
-    </div><!-- /container -->
+    <section class="archetype-features container">
+      	<div class="row">
+	        <h2>Need Headline</h2>
+	        	<div class="col-md-4">
+		               <?php $feature_image = get_field('feature_1_image');
+		               echo "<img class='img-responsive img-circle center-block' src='".$feature_image['url']."' alt=".$feature_image['alt']." />";?>
+		              <h3>Know the Details</h3>
+		              <p>Inktd’s automated reports crunch the numbers for you better than paper ever could, which means you can spot slower months ahead of time and get ‘em filled.</p>
+		            </div><!-- col-md-4 -->
+		            <div class="col-md-4">
+		               <?php $feature_image = get_field('feature_2_image');
+		               echo "<img class='img-responsive img-circle center-block' src='".$feature_image['url']."' alt=".$feature_image['alt']." />";?>
+		              <h3>Keep 'em Coming</h3>
+		              <p>Our cloud-based scheduler gives you access to appointment books for both your artists and your shop, so you always know who’s coming through the door.</p>
+		            </div><!-- col-md-4 -->
+		            <div class="col-md-4">
+		               <?php $feature_image = get_field('feature_3_image');
+		               echo "<img class='img-responsive img-circle center-block' src='".$feature_image['url']."' alt=".$feature_image['alt']." />";?>
+		              <h3>Show Off Your Shop</h3>
+		              <p>Inktd’s embedded social tools allows your shop to promote its latest work—and to reel in its newest clients.</p>
+	            </div><!-- col-md-4 -->
+		    </div>
+		    <div class="row buttons">	
+				<a class="btn btn-primary" href="<?php bloginfo('url');?>/for-shop-owners/">For Shop Owners</a>
+		    	<a class="btn btn-primary" href="<?php bloginfo('url');?>/for-artists/">For Artists</a>
+		    </div>
+      </section><!-- archetype-features -->
+      <section class="feature-bullets">
+      	<div class="container">
+      		<div class="row">
+      			<div class="col-md-4">
+      				<h2>Inktd at a Glance</h2>
+      				<ul>
+	      				<?php if( have_rows('bullets') ):
+	                        while ( have_rows('bullets') ) : the_row();?>
+	                            <li><?php the_sub_field('bullet');?></li>
+	                    <?php endwhile; endif;?>
+	                </ul>
+	               	<a class="btn btn-primary" href="<?php bloginfo('url');?>/product/">Learn More About Inktd</a>
+      			</div><!-- /col-md-6 -->
+      			<img class="img-responsive" src="<?php echo get_stylesheet_directory_uri();?>/images/home_bullets_laptop.png">
+      		</div><!-- /row -->
+      	</div>
+      </section>
 
-      <div class="violator grey">
-            <div class="container">
-                  <div class="col-md-8">
-                        <h2 itemprop="headline"><?php echo $home['violator2-title'];?></h2>
-                        <p itemprop="description"><?php echo $home['violator2-description'];?></p>
-                  </div><!-- /col-md-8 -->
-                  <div class="col-md-4 form">
-                        <?php echo do_shortcode('[gravityform id=10 title=false description=false ajax=true tabindex=49]');?>
-                        <script type="text/javascript">
-                            var __ss_noform = __ss_noform || [];
-                            __ss_noform.push(['baseURI', 'https://app-NST254.sharpspring.com/webforms/receivePostback/MzQ0MwIA/']);
-                            __ss_noform.push(['endpoint', '5c9ca23b-cf96-4128-aa09-616581981881']);
-                        </script>
-                        <script type="text/javascript" src="https://koi-NST254.sharpspring.com/client/noform.js?ver=1.0" ></script>
+    <section class="artists container">
+      	<div class="row">
+	        <h2>Need Headline</h2>
+	        	<div class="col-md-4">
+		               <?php $artist_image = get_field('artist_1_image');
+		               echo "<img class='img-responsive img-circle center-block' src='".$artist_image['url']."' alt=".$artist_image['alt']." />";?>
+		              <h3><?php the_field('artist_1_headline'); ?></h3>
+		              <p><?php the_field('artist_1_copy'); ?></p>
+		            </div><!-- col-md-4 -->
+		            <div class="col-md-4">
+		               <?php $artist_image = get_field('artist_2_image');
+		               echo "<img class='img-responsive img-circle center-block' src='".$artist_image['url']."' alt=".$artist_image['alt']." />";?>
+		              <h3><?php the_field('artist_2_headline'); ?></h3>
+		              <p><?php the_field('artist_2_copy'); ?></p>
+		            </div><!-- col-md-4 -->
+		            <div class="col-md-4">
+		               <?php $artist_image = get_field('artist_3_image');
+		               echo "<img class='img-responsive img-circle center-block' src='".$artist_image['url']."' alt=".$artist_image['alt']." />";?>
+		              <h3><?php the_field('artist_3_headline'); ?></h3>
+		              <p><?php the_field('artist_3_copy'); ?></p>
+	            </div><!-- col-md-4 -->
+		    </div>
+      </section><!-- artists -->
 
-                  </div><!-- /col-md-6 -->
-            </div><!-- /container -->
-      </div><!-- /violator -->
-
-    <div class="home-features">
-	      <div class="container container-home">
-		        <div class="col-md-6">
-		        	<h1 class="section-title"><?php echo $home['checklist-title'];?></h1>
-			        <p><?php echo $home['checklist-desc'];?></p>
-              <ul>
-                  <li><i class="fa fa-check-square-o fa-lg"></i><?php echo $home['checklist-bullet1'];?></li>
-                  <li><i class="fa fa-check-square-o fa-lg"></i><?php echo $home['checklist-bullet2'];?></li>
-                  <li><i class="fa fa-check-square-o fa-lg"></i><?php echo $home['checklist-bullet3'];?></li>
-              </ul>
-			        <p><a href="<?php bloginfo('url');?>/software/" class="btn btn-lg btn-primary"><?php echo $home['checklist-btn'];?></a></p>
-		        </div><!-- /col-md-6" -->
-            <div class="col-md-6 ipad">
-            </div><!-- /col-md-6" -->
-	      </div><!-- /container -->
-    </div><!-- /hero -->
-
-    <div class="container container-home">
-        <h1 class="section-title">What Businesses Are Already Saying About Us</h1>
-    		<div class="row">
-              <div class="col-md-12 testimonials">
-
-                        <?php 
-                          $var= $home['docs'];
-                          if($var != null){
-                            foreach( $var as $v=>$x_val) {
-                              echo "<div class='row'><div class='col-sm-2'>";
-                              echo "<img class='img-responsive img-circle' src='".site_url()."/".$x_val['testimonial-image']."'></div>";
-                              echo "<div class='col-sm-10'><h3>".$x_val['testimonial-title']."</h3>";
-                              echo "<p>&quot;".$x_val['testimonial-copy']."&quot;</p>";
-                              echo "<cite><strong>".$x_val['testimonial-owner'].",</strong>&nbsp;".$x_val['testimonial-place']."</cite></div></div>";
-                            }
-                          }
-                        ?>  
-            </div><!-- /col-md-12 -->
-      </div><!-- /row -->
-    </div><!-- /container -->
-
-  <div class="violator">
+      <section class="demo">
         <div class="container">
-              <div class="col-md-8">
-                    <h2 itemprop="headline"><?php echo $home['violator3-title'];?></h2>
-                    <p itemprop="description"><?php echo $home['violator3-description'];?></p>
-              </div><!-- /col-md-8 -->
-              <div class="col-md-4 button">
-                    <a class="btn btn-primary btn-lg" href="http://app.atmosferiq.com/sign_up" target="_blank"><?php echo $home['violator3-btn'];?></a>
-              </div><!-- /col-md-6 -->
+            <div class="row">
+                <div class="col-md-12 center-block text-center">
+                    <h2 itemprop="headline">Want to see how Inktd could help your shop?</h2>
+                    <p itempop="description">Request a demo fo the product.</p>
+                    <?php echo do_shortcode('[gravityform id=1 title=false description=false ajax=true tabindex=49]');?>
+                </div>
+            </div><!-- /row -->
         </div><!-- /container -->
-  </div><!-- /violator -->
-
-</main><!-- /main -->
-
+      </section>
+       <!-- Violator -->
+      <section class="violator">
+          <div class="container">
+                <div class="col-md-6 col-md-push-6 button">
+                	<h2><?php the_field('violator_headline'); ?></h2>
+                	<p><?php the_field('violator_copy'); ?></p>
+                		<a class="btn btn-primary btn-lg" href="https://inktd.herokuapp.com/sign_up" target="_blank"><?php the_field('violator_btn'); ?></a>
+                </div><!-- /col-md-6 -->
+                <div class="col-md-6 col-md-pull-6 product">
+               <?php $violator_image = get_field('violator_image');
+               echo "<img class='img-responsive center-block' src='".$violator_image['url']."' alt=".$violator_image['alt']." />";?>
+                </div><!-- /col-md-8 -->
+          </div><!-- /container -->
+      </section><!-- /violator -->      
+</main>
  <?php get_footer(); ?>

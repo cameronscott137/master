@@ -8,6 +8,17 @@
 // Provide a static navbar from which we expand to create full-width, fixed, and
 // other navbar variations.
 
+.navbar-wrapper.fixed{
+  position: absolute;
+  top: 0px;
+  z-index: 999;
+  width: 100%;
+}
+
+.logged-in .navbar-wrapper.fixed{
+  top: 30px;
+}
+
 .navbar {
   position: relative;
   min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
@@ -369,7 +380,7 @@
 
 // Default navbar
 .navbar-default {
-  background-color: @navbar-default-bg;
+  background-color: rgba(0,0,0,.5);
   border-color: @navbar-default-border;
 
   .navbar-brand {

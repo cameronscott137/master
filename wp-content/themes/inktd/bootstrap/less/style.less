@@ -4,36 +4,362 @@ Grey: #485258;
 /*
 01 Global
 ---------------------------------------------------------------------------------------------------------- */
-@font-face {
-    font-family: 'trade_gothic_lt_stdBdCnno.20';
-    src: url('./fonts/tradegothicltstd-bdcn20-webfont.eot');
-    src: url('./fonts/tradegothicltstd-bdcn20-webfont.eot?#iefix') format('embedded-opentype'),
-         url('./fonts/tradegothicltstd-bdcn20-webfont.woff') format('woff'),
-         url('./fonts/tradegothicltstd-bdcn20-webfont.ttf') format('truetype'),
-         url('./fonts/tradegothicltstd-bdcn20-webfont.svg#trade_gothic_lt_stdBdCnno.20') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 ::selection{
 	color: #fff;
 	background: @brand-primary;
 }
-
+ 
 ::-moz-selection{
 	color: #fff;
 	background: @brand-primary;
 }
 
-
 /*
 Navigation 
 =========================== */
 
+.navbar-default{
+			img{
+				max-width: 70px;
+			}
+	.navbar-nav{
+			li.current_page_item > a{
+				color: @brand-primary; 
+			}
+	}
+} 
 
-.navbar{
-		img{
-			max-width: 100px;
+
+
+/*
+Page Structure 
+=========================== */
+
+.hero{
+	//padding-top: 100px;
+	background-color: #111111;
+	text-align: center;
+	min-height: 400px;
+	position: relative;
+	.container{
+		padding: 140px 0px 160px;
+		position: relative;
+		z-index: 2;
+		color: #ffffff;
+		max-width: 800px;
+		text-shadow: 0px 0px 15px rgba(0,0,0,.5);
+		h1{
+			font-size: 48px;
 		}
+		h2{
+			font-size: 26px;
+			line-height: 1.4;
+			font-weight: 400;
+			color: #ffffff;
+		}
+		.btn{
+			font-size: 24px;
+			margin: 20px 0 20px;
+		}
+	}//container
+	.featured-image{
+		background-size: cover;
+		opacity: .7;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0px;
+		z-index: 1;
+	}
+}//hero
+
+.violator{
+	background: @brand-primary;
+	padding: 30px 0 ;
+	.product{
+		position: relative;
+		min-height: 130px;
+		z-index: 2;
+		img{
+			position: absolute;
+			bottom: -30px;
+		}
+		@media screen and (max-width: 982px){
+			text-align: center;
+			img{
+				position: relative;
+				//bottom: -30px;
+			}
+		}
+	}//product
+	.button{
+		text-align: center;
+		padding-top: 20px;
+		a.btn{
+			background: #111111;
+			color: #ffffff;
+			padding: 15px 30px;
+			font-size: 26px;
+			//margin-bottom: 20px;
+		}
+		p{
+			margin-top: 10px;
+			font-size: 14px;
+			color: #ffffff;
+		}
+	}//button
+}//violator
+
+.copyright{
+	background: #111111;
+	text-align: center;
+	padding: 15px 0;
+	color: #ffffff;
+}
+
+
+/*
+Home
+=========================== */
+.home{
+	h2{
+		color: #111111;
+		margin: 0px 0 40px;
+	}
+	.hero .container{
+		padding: 140px 0 80px;
+	}
+	.violator{
+		.button{
+			text-align: left;
+			padding:0px;
+			h2{
+				color: #ffffff;
+				margin: 0px 0px 10px;
+			}
+			.btn{
+				font-size: 18px;
+				margin-top: 20px;
+			}
+			p{
+				font-size: 18px;
+			}
+		}//button
+		.product img {
+			position: absolute;
+			bottom: -94px;
+		}//img
+	}//violator
+}
+
+
+.archetype-features{
+	.row.buttons{
+		margin-top: 60px;
+		.btn{
+			font-size: 24px;
+			margin: 0px 10px;
+		}
+	}
+}
+
+.feature-bullets{
+	background-image: url(./images/bg_testimonial.png);
+	background-color: #f8f8f8;
+	position: relative; 
+	padding: 80px 0;
+	h2{
+		margin-bottom: 25px;
+	}
+	img{
+		position: absolute;
+		right: 0px;
+		max-height:400px;
+	}
+	ul{
+		margin: 10px 0;
+		padding-left: 20px;
+		li{
+			margin: 12px 0;
+			font-size: 18px;
+		}
+	}
+	.btn{
+		font-size: 20px;
+		margin-top: 30px;
+	}
+	@media screen and (max-width: 992px){
+		padding-bottom: 500px;
+		.col-md-4{
+			//text-align: center;
+		}
+		img{
+			bottom: 60px;
+		}
+	}
+}
+
+/*
+Archetypes
+=========================== */
+
+.archetype-features,
+.artists{
+	padding: 70px 0;
+	text-align: center;
+	h3{
+		margin-bottom: 25px;
+	}
+	img{
+		margin-bottom: 30px;
+	}
+	@media screen and (max-width: 982px){
+		.col-md-4{
+			margin-top: 80px;
+			&:first-child{
+				margin-top: 0px;
+			}
+		}
+	}
+}//archetype-features
+
+.demo{
+	padding: 70px 0;
+	background-image: url(./images/bg_demo.png);
+	background-size: cover;
+	color: #ffffff;
+	.col-md-12{
+		max-width: 500px;
+		float: none;
+		h2{
+			color: #ffffff;
+		}
+		.gform_wrapper .top_label input.medium {
+			max-width: 100%;
+			width: 100%;
+			padding: 7px 10px;
+			font-size: 16px;
+			margin-bottom: 20px;
+			border: none;
+			border-radius: 3px;
+		}
+		.gform_footer{
+			text-align: center;
+			input[type=submit]{
+				width: 100%;
+				max-width: 350px;
+				background-color: @brand-primary;
+				color: #ffffff;
+				padding: 10px 0;
+				font-size: 24px;
+			}
+		}//gform_footer
+	}//col-md-12
+}//demo
+
+.testimonial{
+	padding: 70px;
+	background-image: url(./images/bg_testimonial.png);
+	background-color: #f8f8f8;
+	min-height: 400px;
+	ul.slides{
+		list-style: none;
+		margin-top: 40px;
+		li{
+			// Flexlider back to keep all slides showing at once.
+			display: none;
+			p{
+				text-align: left;
+				font-size: 22px;
+			}
+		}
+	}
+}
+
+
+/*
+Products
+=========================== */
+.product h1{
+	text-align: center;
+}
+
+.feature-set{
+	padding: 60px 0;
+	h2{
+		color: #111111;
+		font-size: 26px;
+		margin-top: 100px;
+	}
+}
+
+
+
+
+/*
+Pricing
+=========================== */
+.pricing-grid{
+	position: relative;
+	top: -100px;
+	text-align: center;
+	z-index: 2;
+	.pricing-header{
+		background-image: url(./images/bg_testimonial.png);
+		background-color: #f8f8f8;
+		border-top-right-radius: 3px;
+		border-top-left-radius: 3px;
+		h2{
+			margin: 0px;
+			color: @brand-primary;
+			padding: 30px 0 20px;
+		}
+		hr{
+			border-top: 1px solid #111111;
+			max-width: 75%;
+			margin: 0px auto;
+			padding: 0px;
+		}
+	}
+	.pricing-body{
+	background-image: url(./images/bg_testimonial.png);
+	background-color: #f4f4f4;
+		h3{
+			margin: 0px;
+			font-size: 72px;
+			color:@brand-primary;
+			padding-top: 20px;
+		}
+		p{
+			color: #111111;
+			font-weight: 700;
+			margin-bottom: 0px;
+			padding-bottom: 20px;
+		}
+	}//pricing-body
+	.pricing-footer{
+		background-image: url(./images/bg_testimonial.png);
+		background-color: #f8f8f8;
+		padding-bottom: 40px;
+		ul{
+			list-style: none;
+			padding: 0px 0px 20px;
+			li{
+				padding: 15px 0;
+				font-size: 18px;
+			}
+		}
+		.btn{
+			//padding-top: 20px;
+			font-size: 18px;
+		}
+	}
+	p.caption{
+		margin-top: 20px;
+	}
+	@media screen and (max-width: 992px){
+		.col-md-6:last-child{
+			margin-top: 40px;
+		}
+	}
 }

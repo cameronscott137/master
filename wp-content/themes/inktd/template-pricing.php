@@ -5,100 +5,68 @@ Template Name: Pricing
 ?>
 
 <!-- Call global metaboxes -->
-<?php
-      global $pricing;
-      $pricing = get_post_meta(get_the_ID(), $pricing->get_the_id(), TRUE);
-      get_header();
-      require_once( 'header-nav.php' );?>
-
+<?php get_header();?>
       <!-- Hero -->
-      <div class="hero js">
-            <div class="container">
-                  <div class="row">
-                              <div class="col-md-12 page-header">
-                                    <h1 itemprop="headline"><?php echo $pricing['heading-title'];?></h1>
-                                    <p itemprop="description"><?php echo $pricing['heading-description'];?></p>
-                              </div>
-                  </div>
-            </div>
-            <?php if (has_post_thumbnail( $post->ID ) ): ?>
-                  <?php $image_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'med-custom');
+      <div class="hero">
+               <div class="container">
+                     <div class="row">
+                         <div class="col-md-12">
+                            <h1 itemprop="headline"><?php the_field('hero_headline'); ?></h1>
+                            <h2 itemprop="description"><?php the_field('hero_sub'); ?></h2>
+                         </div>
+                     </div>
+               </div>
+               <?php if (has_post_thumbnail( $post->ID ) ): ?>
+               <?php $image_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'med-custom');
                echo "<?php echo $image_url; ?>";
                echo "<div class='featured-image' style='background-image: url($image_url[0])' itemprop='image'></div>";
              ?>
             <?php endif; ?>
       </div><!-- /hero -->
-<div class="main">
-      <!-- Feature Set #1 -->
+
       <div class="pricing-grid">
           <div class="container">
             <div class="row">
-                        <div class="col-md-4 pricing-column">
+                        <div class="col-md-6 pricing-column">
                            <header class="pricing-header">
-                              <h1>Basic</h1>
+                              <h2><?php the_field('pricing_headline1'); ?></h2>
+                              <hr>
                            </header>
                            <div class="pricing-body">
-                              <h3 class="price"><?php echo $pricing['price'];?></h3>
-                              <p class="pricing-desc"><?php echo $pricing['price-desc'];?></p>
-                              <a href="http://app.atmosferiq.com/sign_up" class="btn btn-primary btn-lg" target="_blank"><?php echo $pricing['price-btn'];?></a>
+                              <h3 class="price"><?php the_field('price1'); ?></h3>
+                              <p class="pricing-desc">per month</p>
                            </div>
                            <div class="pricing-footer">
                               <ul class="pricing-features">
-                                    <?php 
-                                      $var= $pricing['basic-features'];
-                                      if($var != null){
-                                        foreach( $var as $v=>$x_val) {
-                                          echo "<li>".$x_val['pricing-feature']."</li>";
-                                        }
-                                      }
-                                    ?>  
+                                <?php if( have_rows('features1') ):
+                                          while ( have_rows('features1') ) : the_row();?>
+                                              <li><?php the_sub_field('feature');?></li>
+                                <?php endwhile; endif;?>
                               </ul>
-                           </div>
-                        </div><!-- col-md-4 -->
-                          <div class="col-md-4 pricing-column coming-soon">
+                              <a class="btn btn-primary" href="https://inktd.herokuapp.com/sign_up" target="_blank">Sign Up Now</a>
+                          </div>
+                          <p class="caption">Have Questions? Email or call us at xxx-xxx-xxxx</a>
+                        </div><!-- col-md-6-->
+                        <div class="col-md-6 pricing-column">
                            <header class="pricing-header">
-                              <h1>Plus</h1>
+                              <h2><?php the_field('pricing_headline2'); ?></h2>
+                              <hr>
                            </header>
                            <div class="pricing-body">
-                              <h3 class="price"><?php echo $pricing['price-plus'];?></h3>
-                              <p class="pricing-desc"><?php echo $pricing['price-desc-plus'];?></p>
-                              <a data-toggle="modal" data-target="#preorder" class="btn btn-primary btn-lg"><?php echo $pricing['price-btn-plus'];?></a>
+                              <h3 class="price"><?php the_field('price2'); ?></h3>
+                              <p class="pricing-desc">per month</p>
                            </div>
                            <div class="pricing-footer">
                               <ul class="pricing-features">
-                                    <?php 
-                                      $var= $pricing['plus-features'];
-                                      if($var != null){
-                                        foreach( $var as $v=>$x_val) {
-                                          echo "<li>".$x_val['pricing-feature-plus']."</li>";
-                                        }
-                                      }
-                                    ?>  
+                                <?php if( have_rows('features1') ):
+                                          while ( have_rows('features2') ) : the_row();?>
+                                              <li><?php the_sub_field('feature');?></li>
+                                <?php endwhile; endif;?>
                               </ul>
-                           </div>
-                        </div><!-- col-md-4 -->
-                        <div class="col-md-4 pricing-column coming-soon">
-                           <header class="pricing-header">
-                              <h1>Premium</h1>
-                           </header>
-                           <div class="pricing-body">
-                              <h3 class="price"><?php echo $pricing['price-prem'];?></h3>
-                              <p class="pricing-desc"><?php echo $pricing['price-desc-prem'];?></p>
-                              <a data-toggle="modal" data-target="#preorder" class="btn btn-primary btn-lg"><?php echo $pricing['price-btn-prem'];?></a>
-                           </div>
-                           <div class="pricing-footer">
-                              <ul class="pricing-features">
-                                    <?php 
-                                      $var= $pricing['premium-features'];
-                                      if($var != null){
-                                        foreach( $var as $v=>$x_val) {
-                                          echo "<li>".$x_val['pricing-feature-prem']."</li>";
-                                        }
-                                      }
-                                    ?>  
-                              </ul>
-                           </div>
-                        </div><!-- col-md-4 -->
+                              <a class="btn btn-primary" href="https://inktd.herokuapp.com/sign_up" target="_blank">Sign Up Now</a>
+                          </div>
+                          <p class="caption">*No Credit Card Required for 30 day trial.</a>
+                        </div><!-- col-md-6-->
             </div><!-- /row -->
          </div> <!-- /container -->
       </div> <!-- /pricing grid -->
