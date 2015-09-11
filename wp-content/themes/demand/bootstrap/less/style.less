@@ -1,0 +1,151 @@
+/* Blue: #3784C5;
+Grey: #485258;
+
+/*
+01 Global
+---------------------------------------------------------------------------------------------------------- */
+@font-face {
+    font-family: 'trade_gothic_lt_stdBdCnno.20';
+    src: url('./fonts/tradegothicltstd-bdcn20-webfont.eot');
+    src: url('./fonts/tradegothicltstd-bdcn20-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/tradegothicltstd-bdcn20-webfont.woff') format('woff'),
+         url('./fonts/tradegothicltstd-bdcn20-webfont.ttf') format('truetype'),
+         url('./fonts/tradegothicltstd-bdcn20-webfont.svg#trade_gothic_lt_stdBdCnno.20') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+::selection{
+	color: #fff;
+	background: @brand-primary;
+}
+
+::-moz-selection{
+	color: #fff;
+	background: @brand-primary;
+}
+
+body{
+    background: #111111;
+}
+
+.brand{
+    text-align: left;
+    max-width: 1000px;
+    padding: 30px 0 60px;
+        @media screen and (max-width: 982px){
+            padding: 30px 20px 60px;
+        }
+    svg{
+        width: 90px;
+        height: 120px;
+    }
+}
+
+.intro{
+    //text-align: center;
+    max-width: 1000px;
+    margin-bottom: 120px;
+    h1{
+        font-size: 64px;
+    }
+    h2{
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 1.4;
+    }
+    @media screen and (max-width: 982px){
+        padding: 0px 20px;
+    }
+}
+
+.clients{
+    max-width: 1000px;
+    display: none;
+    margin-bottom: 16px;    
+    .client{
+        .client-header{
+            position: relative;
+            cursor: pointer;
+            .client-brand{
+                position: absolute;
+                left: 20px;
+                bottom: 20px;
+                height: 75px;
+                width: 70px;
+                padding: 15px 0;
+                background: #ffffff;
+                text-align: center;
+                    @media screen and (max-width: 982px){
+                        padding: 0px 20px;
+                        height: 40px;
+                        width: 35px;
+                    }
+                svg{
+                    max-width: 20px;
+                }
+            }//client-brand
+        } //client-header
+        .quote{
+            display: none;
+            background:#27a8df;
+            padding: 30px 40px;
+            border-top: 16px solid @body-bg;
+            .caret{
+                position: absolute;
+                left: 10px;
+                top: -30px;
+                display: inline-block;
+                width: 0;
+                height: 0;
+                margin-left: 2px;
+                vertical-align: middle;
+                border-top: 20px solid;
+                border-right: 20px solid rgba(0, 0, 0, 0);
+                border-left: 20px solid rgba(0, 0, 0, 0);
+                border-top: 20px solid @body-bg;
+            }
+            h2{
+                font-size: 36px;
+                line-height: 1.3;
+                margin: 0 0 20px;
+            }
+            p{
+                font-size: 18px;
+                line-height: 1.4;
+                font-weight: 400;
+            }
+            @media screen and (max-width: 992px){
+                .col-md-12{
+                    padding: 0px;
+                }
+            }
+            .links{
+                padding: 50px 0 30px;
+                .col-md-4{
+                    padding: 0px;
+                    @media screen and (max-width: 992px){
+                        text-align: center !important;
+                        margin: 20px 0;
+                        img{
+                            margin: 0 auto;
+                        }
+                    }
+                }
+                .palette{
+                    display: inline-block;
+                    height: 15px;
+                    width: 15px;
+                    border-radius: 50%;
+                    margin: 0px 5px;
+                }
+            }
+        }//quotes
+    }//clients
+}
+
+
+footer.copyright{
+    padding: 20px 0;
+}
